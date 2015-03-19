@@ -1,19 +1,23 @@
 {
   "name": "strong-pubsub-connection-mqtt",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Ritchie Martori",
-  "license": "ISC",
+  "license": {
+    "name": "Dual MIT/StrongLoop",
+    "url": "https://github.com/strongloop/strong-pubsub-connection-mqtt/blob/master/LICENSE"
+  },
   "dependencies": {
     "chai": "^2.1.0",
     "debug": "^2.1.2",
     "mqtt-connection": "^2.1.1"
   },
   "devDependencies": {
-    "lodash": "^3.3.1"
+    "lodash": "^3.3.1",
+    "mocha": "^2.2.1"
   }
 }
