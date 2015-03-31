@@ -1,7 +1,7 @@
-var Client = require('../../strong-pubsub');
-var Adapter = require('../../strong-pubsub-mqtt');
-var Connection = require('../'); // strong-pubsub-connection-mqtt
-var Proxy = require('../../strong-pubsub-proxy');
+var Client = require('strong-pubsub');
+var Adapter = require('strong-pubsub-mqtt');
+var Connection = require('strong-pubsub-connection-mqtt');
+var Proxy = require('strong-pubsub-proxy');
 var helpers = require('strong-pubsub-test');
 var usingMosquitto = helpers.usingMosquitto;
 var getPort = helpers.getFreePort;

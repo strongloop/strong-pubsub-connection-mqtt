@@ -107,8 +107,6 @@ function Connection(socket) {
 
 inherits(Connection, EventEmitter);
 
-var rc = packet.returnCode,
-
 // Return codes:
 // [
 //   '',
