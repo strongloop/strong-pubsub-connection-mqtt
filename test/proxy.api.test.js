@@ -1,13 +1,13 @@
 var Client = require('strong-pubsub');
 var Adapter = require('strong-pubsub-mqtt');
 var Connection = require('strong-pubsub-connection-mqtt');
-var Proxy = require('strong-pubsub-proxy');
+var Bridge = require('strong-pubsub-bridge');
 var helpers = require('strong-pubsub-test');
 var usingMosquitto = helpers.usingMosquitto;
 var getPort = helpers.getFreePort;
 
-describe('Proxy', function () {
-  describe('proxy.connect(cb)', function () {
+describe('Bridge', function () {
+  describe('bridge.connect(cb)', function () {
     beforeEach(function(done) {
       var test = this;
       usingMosquitto(function(err, port) {
@@ -21,19 +21,19 @@ describe('Proxy', function () {
       var test = this;
       getPort(function(port) {
         server.on('connection', function(connection) {
-          var proxy = new Proxy(
+          var bridge = new Bridge(
             new Connection(connection),
             new Client({port: test.brokerPort}, Adapter)
           );
 
-          proxy.connect();
+          bridge.connect();
         });
         test.port = port;
         server.listen(port, done);
       });
     });
 
-    describe('client with a connection to a proxy', function() {
+    describe('client with a connection to a bridge', function() {
       beforeEach(function(done) {
         this.topic = 'test topic';
         this.message = 'test message';
