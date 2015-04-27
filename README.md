@@ -10,7 +10,7 @@ $ npm install strong-pubsub-connection-mqtt
 
 ## Use
 
-[See the `Proxy` README.](http://github.com/strongloop/strong-pubsub-proxy)
+[See the `Proxy` README.](http://github.com/strongloop/strong-pubsub-bridge)
 
 ## API
 
