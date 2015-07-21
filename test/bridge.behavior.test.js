@@ -6,11 +6,15 @@ var helpers = require('strong-pubsub-test');
 var usingMosquitto = helpers.usingMosquitto;
 var waitUntilAcceptingConnections = helpers.waitForConnection;
 var defineBridgeBehaviorTests = helpers.defineBridgeBehaviorTests;
-var getPort = helpers.getFreePort;
 
 describe('bridge behavior', function () {
   beforeEach(function(done) {
     var test = this;
+    if (process.env.CI) {
+      // CI provides a mosquitto server on the default port
+      test.brokerPort = 1883;
+      return done();
+    }
     usingMosquitto(function(err, port) {
       test.brokerPort = port;
       done(err);

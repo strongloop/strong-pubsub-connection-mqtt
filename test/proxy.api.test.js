@@ -1,6 +1,6 @@
 var Client = require('strong-pubsub');
 var Adapter = require('strong-pubsub-mqtt');
-var Connection = require('strong-pubsub-connection-mqtt');
+var Connection = require('../');
 var Bridge = require('strong-pubsub-bridge');
 var helpers = require('strong-pubsub-test');
 var usingMosquitto = helpers.usingMosquitto;
@@ -10,6 +10,11 @@ describe('Bridge', function () {
   describe('bridge.connect(cb)', function () {
     beforeEach(function(done) {
       var test = this;
+      if (process.env.CI) {
+        // CI provides a mosquitto server on the default port
+        test.brokerPort = 1883;
+        return done();
+      }
       usingMosquitto(function(err, port) {
         test.brokerPort = port;
         done(err);
